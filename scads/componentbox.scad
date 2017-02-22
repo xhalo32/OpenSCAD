@@ -1,28 +1,28 @@
 matrix=
 [
 	[1,1,1],
-	[1,0,1],
-	[3],
+	[1,1,1],
+	[1,1,1],
 ];
 
 carvings=
 [
-	[ "A","B","C" ],
-	[ "D","ABC" ],
-	[ "123456" ],
+	[ "1k","10k","100k" ],
+	[ "<1k","",">100k" ],
+	[ "" ],
 ];
 
 $fn=10;
-h=20;
-w=30;
+h=25;
+w=40;
 
-box_height=15;
+box_height=12;
 box_layer=2;
 box_wall=1;
 
 box_size=[sumvec(matrix[0],len(matrix[0])), len(matrix)];
 
-text_size=0.7;
+text_size=0.4;
 
 function sum(vector) =
 	sumvec(vector, len(vector));
