@@ -1,13 +1,13 @@
-radius = 16;
-sides = 5;
-thickness = 1.5;
-baseheight = 1;
-bodyheight = 20;
-bodytwist = 72;
-bodyslices = 10;
-bodyscale = 1.3;
+radius = 15;
+sides = 6;
+thickness = 0.2;
+baseheight = 0.3;
+bodyheight = 30;
+bodytwist = 60;
+bodyslices = 100;
+bodyscale = 2;
 
-rimheight=1;
+rimheight=0;
 
 module poly( solid )
 {
