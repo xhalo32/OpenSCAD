@@ -1,11 +1,11 @@
 radius = 15;
-sides = 6;
+sides = 600;
 thickness = 0.2;
 baseheight = 0.3;
 bodyheight = 30;
-bodytwist = 60;
+bodytwist = 0;
 bodyslices = 100;
-bodyscale = 2;
+bodyscale = 1.5;
 
 rimheight=0;
 
