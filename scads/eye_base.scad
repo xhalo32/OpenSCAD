@@ -32,7 +32,7 @@ module eye_base()
 
 
 difference()
-        {
-            scale(1.1) rotate(180,[0,0,1]) eye_base();
-            translate([0,0,plate_height])  rotate(180,[0,0,1]) eye_base();
-        }
+{
+    scale(1.1) rotate(180,[0,0,1]) eye_base();
+    translate([0,0,plate_height])  rotate(180,[0,0,1]) eye_base();
+}

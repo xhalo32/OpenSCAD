@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="pawn_profile" width="100%" height="100%"  viewBox="-6 -6 198 606">
+<desc>
+XCircuit Version 3.9
+File "profiles.ps" Page 2
+</desc>
+<g stroke="black">
+<path d="M0,40 
+	L0,600 
+	L192,600 
+	L192,584 
+	184,584 
+	C176,584 
+	184,576 
+	184,576 
+	C192,568 
+	192,552 
+	176,544 
+	C112,520 
+	104,480 
+	104,432 
+	C86,434 
+	54,386 
+	52,288 
+
+	C60,286
+	85,278 
+	85,258
+
+	C85,242 
+	70,230 
+	58,228 
+	C52,227 
+	53,222 
+	58,220 
+
+	C80,198 
+	100,176 
+	100,138 
+	C100,74 
+	50,40 
+	0,40 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" />
+</g>
+</svg>
