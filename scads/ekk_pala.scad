@@ -29,7 +29,7 @@ module alusta()
         }
         for (i = [0:1])
         {
-            translate([i*(pituus-2*8)+8,9,0])
+            translate([i*(pituus-2*7)+7,9,0])
             {
                 translate([0,0,1.5]) cylinder(syvyys, d=reika);
                 cylinder(syvyys, d=pienoreika);
