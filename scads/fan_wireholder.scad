@@ -60,16 +60,16 @@ module wireholder()
 			//clamp
 			difference()
 			{
-				translate([motor_side+4, 4, 15])
-				cube([10, motor_side-8, 10]);
+				translate([motor_side+4, 10, 15])
+				cube([8, motor_side-18, 10]);
 
 
 				translate([motor_side+4, 4, 15])
 				union()
 				{
-					cube([2, motor_side-14, 10]);
-					translate([0, 6, 0])
-					cube([6, motor_side-20, 10]);
+					cube([1.5, motor_side-16, 10]);
+					translate([0, 10, 0])
+					cube([5, motor_side-26, 10]);
 				}
 			}
 		}

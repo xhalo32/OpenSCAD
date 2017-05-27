@@ -1,11 +1,10 @@
 segments = 64;
 
-
 module knight()
 {
 	difference()
 	{
-		scale(0.2)
+		scale(0.17)
 		union ()
 		{
 			translate([0, 0, 30])
@@ -16,5 +15,7 @@ module knight()
 			scale(3.2)
 			import(file = "horse3.stl");
 		}
+		
+		cylinder(2, d=5.3, $fn=100);
 	}	
 }

@@ -1,12 +1,19 @@
 segments = 64;
 
-scale(0.2)
-rotate([0, 0, 0])
-translate([0, 0, 0]) {
+module pawn()
+{
+	difference()
+	{
+		scale(0.2)
+		translate([0, 0, 1.13]) 
+		{
 
-translate([0, 0, 0])
-    rotate_extrude(convexity = 10, $fn = segments) {
-	import_dxf(file = "pawn_profile_new.dxf");
-    }
+			rotate_extrude(convexity = 10, $fn = segments)
+			translate([-0.26855, 0, 0])
+			import("pawn_profile_new.dxf");
 
+		}
+		
+		cylinder(2, d=5.3, $fn=100);
+	}
 }
