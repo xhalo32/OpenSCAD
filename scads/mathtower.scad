@@ -1,40 +1,38 @@
-range = 100;
-rangex = [-range, range];
-rangey = [-range, range];
-step = .92;
-baseheight=10;
+r=1;
+R=4;
 
-radius = 30;
-_height = 150;
+range=[-180,180];
+stept=2;
+stepp=1;
 
-height = pow(_height,2)/(_height*radius/2-_height);
+function x(theta,phi) = (R+r*cos(theta))*cos(phi);
+function y(theta,phi) = (R+r*cos(theta))*sin(phi);
+function z(theta,phi) = r*(sin(theta));
 
-function tower2(x, y) = height*radius/(sqrt(pow(x,2)+pow(y,2))+2) - height;
-function atower2(z) = 1/((z + height) / (height*radius))-2;
+mathtower();
 
-translate([0,0,baseheight])
+module mathtower()
+{
+
 	difference()
 	{
-		for (i = [rangex[0]:step:rangex[1]])
+		union()
 		{
-			for (j = [rangex[0]:step:rangex[1]])
+			rotate_extrude()
 			{
-				translate([i,j,0])
-					cylinder(h=tower2(i,j), r=step, $fn=10);
+				translate([R,0])
+					circle(d=2, $fn=10);
+			}
+			for (i = [range[0]:stept:range[1]])
+			{
+				for (j = [range[0]:stepp:range[1]])
+				{
+					k = j+3.141*sin(4*j);
+					//color([i/360+1/2,j/360+1/2,0])
+					translate([x(i,k), y(i,k), z(i,k)])
+						cube(1.1, center=true);
+				}
 			}
 		}
-		difference()
-		{
-			cylinder(baseheight+_height,r=atower2(0)+step);
-			cylinder(baseheight+_height,r=atower2(0));
-		}
 	}
-
-difference()
-{
-	cylinder(baseheight,r=atower2(0), $fn=100);
-
-	mirror([1,0,0])
-		linear_extrude(1)
-		text("1/(sqrt(pow(x,2)+pow(y,2))+2)", 2.4, "Arial bold", halign="center", valign="center");
 }
