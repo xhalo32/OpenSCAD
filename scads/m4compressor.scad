@@ -35,7 +35,6 @@ knob=
 ];
 
 
-rotate(90,[1,0,0])
 compressor();
 
 
