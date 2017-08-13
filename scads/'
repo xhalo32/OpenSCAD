@@ -1,0 +1,32 @@
+$fn=60;
+hole=5.4;
+use <utils.scad>;
+
+mount();
+
+module mount()
+{
+	size=[30,20,1];
+	roundcube(size,2);
+	step=1/300; height=25; stepheight=1/3; threadr=1/3;
+	points=[for (a=[0:step:height]) [ (hole/2)*cos(a),(hole/2)*sin(a)] ];
+	faces=[0,1,2];
+
+	translate([size[0]/2,size[1]/2,size[2]])
+	{
+		cylinder(height,r=hole/2-threadr);
+		#for(i=[0:step:height-step])
+		#{
+		#	rotate(i/height*360*30,[0,0,1])
+		#	translate([hole/2-threadr,0,i-stepheight])
+		#		cylinder(step+stepheight,r=threadr);
+		#}
+		!polygon(points,faces);
+	}
+}
+
+module tap()
+{}
+
+
+
