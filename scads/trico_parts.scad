@@ -11,7 +11,9 @@ rod();
 translate([9.82/2,9.82+1,0])
 	axelmount();
 */
-nazemount();
+//nazemount();
+//leg();
+wireclamp();
 
 
 module rod()
@@ -64,8 +66,8 @@ module axelmount()
 
 module nazemount()
 {
-	size=[20,30+0.5,1.65]; hang=2;
-	yplus=2; height=6; hstart=-2; dy=5; dz=2.6;
+	size=[20,30+0.5,1.65+0.0]; hang=2;
+	yplus=2; height=8; hstart=-2; dy=5; dz=2.6;
 
 	difference()
 	{
@@ -83,7 +85,7 @@ module nazemount()
 		cube(size);
 		translate([0,hang,-10])
 			cube([size[0],size[1]-2*hang,10]);
-		translate([0,dy,0])
+		translate([0,dy,size[2]])
 			cube([size[0],size[1]-2*dy,dz]);
 		for (i=[0:1])
 		{
@@ -91,5 +93,50 @@ module nazemount()
 				rotate(90,[0,1,0])
 					cylinder(h=size[0],d=3);
 		}
+	}
+}
+
+module leg()
+{
+	side=9.85-0.03;
+	chamfer=0.7+0.1;
+	width=1;
+	_leg=[100,2.5,25];
+	hole=[5,5,3];
+
+	difference()
+	{
+		translate([-width,-_leg[1],0])
+			chamfercube([side+2*width,side/1.5+2*width,_leg[2]],chamfer+width/sqrt(2));
+#chamfercube([side,side/1.5+2*width,_leg[2]],chamfer);
+	}
+	difference()
+	{
+		translate([-10,-_leg[1],0])
+			cube(_leg);
+		translate([(side)/2,0,_leg[2]/2])
+		for (i=[0:3])
+		{
+			translate([	cos(90*i)*(side+2*width+hole[0])/2-sin(90*i)*(side+2*width+hole[0])/2,0,
+						sin(90*i)*(_leg[2]-hole[1])/2+cos(90*i)*(_leg[2]-hole[1])/2])
+			rotate(90,[1,0,0])
+				#cylinder(h=_leg[1],d=hole[2]);
+		}
+	}
+}
+
+module wireclamp()
+{
+	size=[4.2,11,8];
+	dy=1; y=0.5;
+	width=1; cham1=0.8;cham2=0.8;
+	difference()
+	{
+		translate([-width,0,0])
+			chamfercube([size[0]+2*width,size[1]+width+dy,size[2]],cham1);
+		translate([0,y,0])
+			chamfercube([size[0],size[1]+dy-y,size[2]],cham2);
+		translate([cham2,0,0])
+			cube([size[0]-2*cham2,y,size[2]]);
 	}
 }

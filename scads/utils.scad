@@ -25,3 +25,20 @@ module chamfercube(size,chamf)
 		}
 	}
 }
+module roundcube1(size,r)
+{
+	difference()
+	{
+		cube(size);
+		translate([-1,-1,size[2]-r])
+			cube([size[0]+2,r+1,r+2]);
+	}
+	translate([0,r,size[2]-r])
+		intersection()
+		{
+			rotate(90,[0,1,0])
+				cylinder(h=size[0],r=r);
+			translate([0,-r,0])
+				cube([size[0],r,r]);
+		}
+}
