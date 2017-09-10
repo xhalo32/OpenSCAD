@@ -5,10 +5,10 @@ intersection()
 {
 	union()
 	{
-		translate([1.7,0,5.2]) connector_top(false);
+		//translate([1.7,0,5.2]) connector_top(false);
 		connector_bot();
 	}
-	*translate([80,-10,0])
+	translate([80,-10,0])
 		cube(40);
 }
 
@@ -104,6 +104,7 @@ module connector_bot(shell=true)
 	widthl=31.6+0.5; widthl2=56.8+0.5; widthm=25; widthm0=3.3; widthm1=18.4;
 	wall=1.5;
 	mountholes=[[23.5,81,width-38.5],7,3.2];
+	circuitboard=[[86,36],[12,2]];
 
 	difference()
 	{
@@ -138,5 +139,8 @@ module connector_bot(shell=true)
 			translate([widthd+wall,top_depth+top_radius,wall])
 				cube([width-2*(widthd+wall),depth-top_depth-top_radius,height-wall]);
 		}
+		// circuitboard
+		translate([widthd+wall+widthl+widthl2+widthm0-circuitboard[0][1],mountholes[2]+circuitboard[1][1],wall])
+			cube([circuitboard[0][0],top_radius+top_depth,height-wall]);
 	}
 }
