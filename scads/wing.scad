@@ -1,7 +1,8 @@
 $fn=30;
 
 //wingholder();
-batholder();
+//batholder();
+cube([98,40,.85]);
 
 module wingholder()
 {
