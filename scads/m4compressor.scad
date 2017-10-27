@@ -56,8 +56,13 @@ module compressor()
 					cube([diameter[0]/2+track[0], track[1], track[2]]);
 			}
 
+			color("chartreuse")
 			translate([-stopper_big[1]/2,0,stopper_big_height])
 				cube([stopper_big[1], diameter[0]/2+stopper_big[0], stopper_big[2]]);
+			translate([-stopper_big[1]/2,0,stopper_big_height+1+diameter[0]/2*tan(30)])
+				rotate(-35,[1,0,0])
+					cube([stopper_big[1], diameter[0]/2+stopper_big[0]-6.5, stopper_big[2]]);
+
 
 			translate([0,0,guider_height])
 			hull()

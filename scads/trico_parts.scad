@@ -13,7 +13,8 @@ translate([9.82/2,9.82+1,0])
 */
 //nazemount();
 //leg();
-wireclamp();
+//wireclamp();
+hat();
 
 
 module rod()
@@ -138,5 +139,29 @@ module wireclamp()
 			chamfercube([size[0],size[1]+dy-y,size[2]],cham2);
 		translate([cham2,0,0])
 			cube([size[0]-2*cham2,y,size[2]]);
+	}
+}
+
+module hat()
+{
+	rod=[4.0+0.1,20]; // d, height
+	hat=[13.6,25]; // dbot, height
+	hexnut=[7.7+0.2,3]; // corner to corner diameter, height
+	lh=0.2; // layer height
+
+	difference()
+	{
+		rotate_extrude($fn=6)
+		{
+			//polygon([[0,0],[hat[0]/2,0],[0,hat[1]]]);
+
+			points=[for (i=[0:0.3:hat[1]]) [abs( 1+hat[0]/2-pow(2.71828,(i/hat[1]*ln(hat[0]/2))) ),i]];
+			polygon(concat(points,[[0,hat[1]],[0,0],[hat[0]/2,0]]));
+		}
+		cylinder(d=hexnut[0],h=hexnut[1],$fn=6);
+		cylinder(d=rod[0],h=rod[1]);
+
+		// the nut will fall in easier
+		cylinder(d=hexnut[0]+0.4,h=lh,$fn=6);
 	}
 }
